@@ -1,0 +1,27 @@
+class Solution {
+    public int minimumPushes(String word) {
+        int res=0, row=1, n=word.length();
+        int quotient = n/8;
+        int rem=n%8;
+
+        while(quotient > 0) {
+            /**
+            Add the product of 8 and the current row to the result
+             */
+            res += 8 * row;
+
+            /**
+            Decrement the quotient and increment the row for the next
+            cycle
+             */
+             quotient--;
+             row++;
+        }
+        /**
+        Add the product of the remainder and the final row to account
+        for remaining letters
+         */
+        res += rem * row;
+        return res;
+    }
+}
