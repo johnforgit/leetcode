@@ -58,3 +58,33 @@ public:
         return maxArea;
     }
 };
+
+
+class Solution {
+    bool check(vector<vector<int>>& g, int x, int y)  {
+        return (x >= 0 && x < g.size() && y >= 0 && y < g[x].size() && g[x][y] == 1);
+    }
+    int dfs(vector<vector<int>>& grid, int x, int y) {
+        if (!check(grid,x,y))
+            return 0;
+        grid[x][y] = 0;
+        int ret = 1;
+        ret += dfs(grid, x + 1, y);
+        ret += dfs(grid, x - 1, y);
+        ret += dfs(grid, x, y + 1);
+        ret += dfs(grid, x, y - 1);
+        return ret;
+    }
+public:
+    int maxAreaOfIsland(vector<vector<int>>& grid) {
+        int max = 0;
+        for (size_t i = 0; i < grid.size(); i++) {
+            for (size_t j = 0; j < grid[i].size(); j++) {
+                if (grid[i][j] == 1) {
+                    max = std::max(dfs(grid, i, j), max);
+                }
+            }
+        }
+        return max;
+    }
+};
