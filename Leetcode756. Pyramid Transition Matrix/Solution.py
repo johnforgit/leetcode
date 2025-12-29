@@ -40,3 +40,41 @@ class Solution:
 
         return solve(bottom)
             
+# runtime - 46 ms
+class Solution:
+    def pyramidTransition(self, bottom: str, allowed: List[str]) -> bool:
+        mp = defaultdict(list)
+        for temp in allowed:
+            lr = temp[:2]
+            t = temp[2:]
+            mp[lr].append(t)
+        line = bottom
+        def dfs(line):
+            lth = len(line)
+            if lth == 1:
+                return True
+            cand = []
+            maxcand = 0
+            for i in range(lth-1):
+                lr = line[i:i+2]
+                if lr not in mp:
+                    continue
+                toplist = mp[lr]
+                cand.append(toplist)
+                maxcand = max(maxcand, len(toplist))
+            if len(cand) != lth-1:
+                return False
+            up = [None] * (lth-1)
+            for i in range(maxcand):
+                temp = ""
+                for j in range(lth-1):
+                    idx = min(len(cand[j])-1, i)
+                    u = cand[j][idx]
+                    #print(cand[j], u)
+                    temp += u
+                #print(line, temp)
+                if len(temp) == lth-1:
+                    if dfs(temp):
+                        return True
+            return False
+        return dfs(bottom)
