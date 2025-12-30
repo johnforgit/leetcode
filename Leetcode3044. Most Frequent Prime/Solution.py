@@ -114,3 +114,47 @@ class Solution:
                 sl.add(a)
         
         return sl[-1]
+
+# runtime - 33 ms
+MX = 10 ** 6 + 1
+prime = [True] * MX
+prime[0] = prime[1] = False
+
+for i in range(2, MX):
+    if prime[i]:
+        j = i * i
+        while j < MX:
+            prime[j] = False
+            j += i
+
+
+class Solution:
+    def mostFrequentPrime(self, mat: List[List[int]]) -> int:
+        R, C = len(mat), len(mat[0])
+        f = Counter()
+
+        for x in range(R):
+            for y in range(C):
+                for dx, dy in product([0, 1, -1], repeat=2):
+                    if dx == dy == 0:
+                        continue
+                    cx, cy = x, y
+                    cur = 0
+
+                    while 0 <= cx < R and 0 <= cy < C:
+                        cur = (cur * 10) + mat[cx][cy]
+
+                        cx += dx
+                        cy += dy
+                        if cur >= 10 and prime[cur]:
+                            f[cur] += 1
+            
+        if len(f) == 0:
+            return -1
+        
+        mx = max(f.values())
+        best = -1
+        for x in f:
+            if f[x] == mx and best < x:
+                best = x
+        return best
