@@ -1,12 +1,11 @@
-class Solution {
-    public int minTimeToVisitAllPoints(int[][] p) {
-        int ans = 0;
-        for (int i = 1; i < p.length; i++) {
-            ans += Math.max(
-                Math.abs(p[i][0] - p[i - 1][0]),
-                Math.abs(p[i][1] - p[i - 1][1])
-            );
-        }
-        return ans;
-    }
-}
+class Solution:
+    def minTimeToVisitAllPoints(self, p: List[List[int]]) -> int:
+        time = 0
+        for i in range(1, len(p)):
+            time += max(abs(p[i][0] - p[i-1][0]),
+                        abs(p[i][1] - p[i-1][1])
+                    )
+
+        return time
+
+        
