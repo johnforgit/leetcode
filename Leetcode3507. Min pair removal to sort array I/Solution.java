@@ -71,3 +71,42 @@ class Solution {
         return count;
     }
 }
+
+// manual solution
+class Solution {
+    public int minimumPairRemoval(int[] nums) {
+        int n = nums.length;
+        int count = 0;
+
+        while (n > 1) {
+            boolean isAscending = true;
+            int minSum = Integer.MAX_VALUE;
+            int targetIndex = -1;
+
+            for (int i = 0; i < n - 1; i++) {
+                int pairSum = nums[i] + nums[i + 1];
+
+                if (nums[i] > nums[i + 1]) isAscending = false;
+
+                if (pairSum < minSum) {
+                    minSum = pairSum;
+                    targetIndex = i;
+                }
+            }
+
+            if (isAscending) break;
+
+            count++;
+            nums[targetIndex] = minSum;
+
+            // shift left
+            for (int i = targetIndex + 1; i < n - 1; i++) {
+                nums[i] = nums[i + 1];
+            }
+            n--;
+        }
+
+        return count;
+    }
+}
+
