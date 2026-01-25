@@ -2,6 +2,27 @@ class Solution {
     public int minPairSum(int[] nums) {
         int n = nums.length;
         Arrays.sort(nums);
+
+        // initialize the max sum possible to 0
+        int max_sum=0;
+
+        /**
+        ** pairing logic happens here
+        ** compare the elements at the two ends of the array and then
+        ** keep track of the max sum
+         */
+        for(int i=0; i<n/2; i++) {
+            max_sum = Math.max(max_sum, nums[i] + nums[n-1-i]);
+        }
+
+        return max_sum;
+    }
+}
+
+class Solution {
+    public int minPairSum(int[] nums) {
+        int n = nums.length;
+        Arrays.sort(nums);
         int res = 0;
 
         // keep two pointers at the end of the array
