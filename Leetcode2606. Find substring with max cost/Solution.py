@@ -143,3 +143,22 @@ class Solution:
             for c in s
         ]
         return maximum_subarray(nums)
+
+
+# runtime - 56ms
+class Solution:
+    def maximumCostSubstring(self, s: str, chars: str, vals: List[int]) -> int:
+        alp="abcdefghijklmnopqrstuvwxyz"
+        d={}
+        for i,j in enumerate(alp):
+            d[j]=i+1
+        for i in range(len(chars)):
+            d[chars[i]]=vals[i]
+        ans=0
+        ss=0
+        for i in range(len(s)):
+            ss+=d[s[i]]
+            if ss<0:
+                ss=0
+            ans=max(ss,ans)
+        return ans
