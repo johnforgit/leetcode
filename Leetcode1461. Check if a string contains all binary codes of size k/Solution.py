@@ -1,20 +1,17 @@
-class Solution {
-    public boolean hasAllCodes(String s, int k) {
-        int req = 1 << k;
-        boolean[] seen = new boolean[req];
-        int mask = req - 1;
-        int hash = 0;
+class Solution:
+    def hasAllCodes(self, s: str, k: int) -> bool:
+        req = 1<<k
+        seen = [False] * req
+        mask = req-1
+        h = 0
 
-        for (int i = 0; i < s.length(); ++i) {
-            hash = ((hash << 1) & mask) | (s.charAt(i) & 1);
+        for i, ch in enumerate(s):
+            h = ((h<<1) & mask) | (ord(ch)&1)
 
-            if (i >= k - 1 && !seen[hash]) {
-                seen[hash] = true;
-                req--;
-                if (req == 0) return true;
-            }
-        }
+            if (i >= k-1) and not seen[h]:
+                seen[h] = True
+                req -= 1
+                if req ==0:
+                    return True
 
-        return false;
-    }
-}
+        return False
