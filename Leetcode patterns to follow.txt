@@ -1,0 +1,21 @@
+Arrays and sliding windows
+- longest substring without repeating characters
+- min window substring
+- longest repeating character replacement
+- shortest substring with all letters of the alphabet
+- find all anagrams in string
+- product of array except self
+- 3 sum 
+- kth largest element in the array
+- search in rotated sorted array
+- find first and last position of element in rotated sorted array
+- find peak element
+- merge intervals
+- insert intervals
+- non overlapping intervals
+- meeting rooms II
+- task scheduler
+- reverse linked list
+- reorder list
+
+

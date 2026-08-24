@@ -1,0 +1,27 @@
+leetcode 1992 -> Find all groups of farmland
+
+Solution.java
+class Solution {
+    public int[][] findFarmland(int[][] land) {
+        int m=land.length, n = land[0].length;
+		for(int i=0; i<m; i++) {
+			for(int j=0; j<n; j++) {
+				if(land[i][j] == 1) {
+					dfs(i, j, new HashSet());
+				}
+			}
+		}
+    }
+	
+	public HashSet dfs(int x, int y, HashSet seen) {
+		// check if x and y are within bounds or if x and y are already in the set
+		if(x<0 || x>=m || y<0 || y>=n or seen.contains((x,y)))
+			return seen
+		
+		// explore in all 4 directions
+		return seen;
+	}
+}
+
+
+Solution.cpp

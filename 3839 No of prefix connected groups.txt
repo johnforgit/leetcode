@@ -1,0 +1,313 @@
+Leetcode 3839 -> Number of Prefix Connected groups
+
+Solution.py
+***********
+
+class Solution:
+    def prefixConnected(self, words: List[str], k: int) -> int:
+        words.sort()
+        d =  defaultdict(list)
+        for i in range(1, len(words)):
+            if len(words[i]) < k and len(words[i-1]) < k:
+                continue
+            if words[i][:k] == words[i-1][:k]:
+                d[words[i][:k]].append(words[i])
+                d[words[i-1][:k]].append(words[i-1])
+
+        return len(d)
+
+# runtime - 6ms
+class Solution:
+    def prefixConnected(self, words: List[str], k: int) -> int:
+        p=[w[:k] for w in words if len(w)>=k]
+        count=Counter(p)
+        return sum(c>1 for c in count.values())
+        
+
+
+# runtime - 13ms
+from collections import defaultdict
+
+class Solution:
+    def prefixConnected(self, words: List[str], k: int) -> int:
+        groups = defaultdict(list)
+
+        for word in words:
+            if len(word) >= k:
+                prefix = word[:k]
+                groups[prefix].append(word)
+
+        count = 0
+        for g in groups.values():
+            if len(g) > 1:
+                count += 1
+
+        return count
+
+
+# runtime - 20ms
+class Solution:
+    def prefixConnected(self, words: List[str], k: int) -> int:
+        count=0
+        prefixc=defaultdict(int)
+        for i in words:
+            if len(i)<k:
+                continue
+            pre = i[:k]
+            prefixc[pre]+=1
+        for key,val in prefixc.items():
+            if val>=2:
+                count+=1
+        return count
+            
+
+
+# runtime - 27ms
+class Solution:
+    def prefixConnected(self, words: List[str], k: int) -> int:
+        d = {}
+        for word in words:
+            if len(word) >= k:
+                d[word[:k]] = d.get(word[:k], 0) + 1
+
+        ans = 0
+        for v in d.values():
+            if v > 1:
+                ans += 1
+        return ans
+		
+		
+Solution.java
+*************
+
+import java.util.*;
+
+class Solution {
+    public int prefixConnected(String[] words, int k) {
+        Arrays.sort(words);
+        Map<String, List<String>> map = new HashMap<>();
+
+        for (int i = 1; i < words.length; i++) {
+            if (words[i].length() < k || words[i - 1].length() < k) {
+                continue;
+            }
+
+            String prefix1 = words[i].substring(0, k);
+            String prefix2 = words[i - 1].substring(0, k);
+
+            if (prefix1.equals(prefix2)) {
+                map.putIfAbsent(prefix1, new ArrayList<>());
+                map.get(prefix1).add(words[i]);
+                map.get(prefix1).add(words[i - 1]);
+            }
+        }
+
+        return map.size();
+    }
+}
+
+
+// runtime - 14ms
+class Solution {
+    public int prefixConnected(String[] words, int k) {
+        Set set1 = new HashSet<>(), set2 = new HashSet<>();
+        for (var x: words)
+            if (x.length() >= k){
+                var prfx = x.substring(0, k).hashCode();
+                if (!set1.add(prfx))
+                    set2.add(prfx);
+            }
+        return set2.size();
+    }
+}
+
+
+// runtime - 18ms
+class Solution {
+    public int prefixConnected(String[] words, int k) {
+        Map<String,Boolean> map=new HashMap<>();
+        int ans=0;
+        for(String x:words){
+            if(x.length()<k) continue;
+            String pre=x.substring(0,k);
+            if(map.containsKey(pre)){
+                if(map.get(pre)==false){map.put(pre,true);
+                ans++;
+                }
+            }
+            else{
+                map.put(pre,false);
+            }
+        }
+        return ans;
+    }
+}
+
+
+// runtime - 22ms
+class Solution {
+    public int prefixConnected(String[] words, int k) {
+         int res = 0;
+        String[] array = words;
+        Map<String , Integer> mapped = new HashMap<>();
+        for(String word : array){
+            if(word.length()< k)continue;
+            String prefix = word.substring(0,k);
+            mapped.put(prefix,mapped.getOrDefault(prefix , 0 ) + 1);
+        }
+        for(int f : mapped.values()){
+            if(f >= 2){
+                res++;
+            }
+        }
+        return res;
+    }
+}
+
+
+// runtime - 26ms
+class Solution {
+    class Node{
+        int cnt;
+        Node[] children;
+        Node(){
+            cnt = 0;
+            children = new Node[26];
+        }
+    }
+    public int prefixConnected(String[] words, int k) {
+        int connectedGroup = 0;
+        Node root = new Node();
+        for(String word : words){
+            Node temp = root;
+            for(int i = 0;i<k && word.length() >= k;i++){
+                char ch = word.charAt(i);
+                if(temp.children[ch - 'a'] == null){
+                    temp.children[ch - 'a'] = new Node();
+                }
+                temp = temp.children[ch - 'a'];
+                temp.cnt++;
+                if(temp.cnt == 2 && i == k - 1){
+                    connectedGroup++;
+                }
+            }
+        }
+        return connectedGroup;
+    }
+}
+
+Solution.cpp
+************
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int prefixConnected(vector<string>& words, int k) {
+        sort(words.begin(), words.end());
+        unordered_map<string, vector<string>> mp;
+
+        for (int i = 1; i < words.size(); i++) {
+            if (words[i].length() < k || words[i - 1].length() < k) {
+                continue;
+            }
+
+            string prefix1 = words[i].substr(0, k);
+            string prefix2 = words[i - 1].substr(0, k);
+
+            if (prefix1 == prefix2) {
+                mp[prefix1].push_back(words[i]);
+                mp[prefix1].push_back(words[i - 1]);
+            }
+        }
+
+        return mp.size();
+    }
+};
+
+
+// runtime - 6ms
+class Solution {
+public:
+    int prefixConnected(vector<string>& words, int k) 
+    {
+        unordered_map<string_view, int> dic;
+        for (auto& w : words)
+        {
+            if (w.size() < k) continue;
+            auto s = string_view(w).substr(0, k);
+            dic[s]++;
+        }    
+
+        int ans = 0;
+        for (auto [_, v] : dic)
+            if (v > 1) ++ans;
+
+        return ans;
+    }
+};
+
+
+
+// runtime - 8ms
+class Solution {
+public:
+    int prefixConnected(vector<string>& words, int k) {
+        unordered_map<string_view,int> freq;
+        for(string_view s : words){
+            if(s.size() < k) continue;
+            freq[s.substr(0, k)]++;
+        }
+        int ans = 0;
+        for(auto [s, c] : freq){
+            ans += (c>=2);
+        }
+        return ans;
+    }
+};
+
+
+
+// runtime - 10ms
+class Solution {
+public:
+    // TC : O(W * K)
+    // SC : O(W * K)
+    int prefixConnected(vector<string>& words, int k) {
+        std::unordered_map<std::string_view, int> count;
+        count.reserve(words.size());
+
+        for (auto& word : words) {
+            if (word.size() < k) continue;
+            ++count[std::string_view{word}.substr(0, k)];
+        }
+
+        int res = 0;
+        for (auto& [_, cnt] : count) {
+            if (cnt > 1) ++res;
+        }
+        return res;
+    }
+};
+
+
+
+// runtime - 12ms
+class Solution {
+public:
+    int prefixConnected(vector<string>& words, int k) {
+        unordered_map<string,int>mp;
+        for(int i=0;i<words.size();i++){
+            if(words[i].size()>=k){
+                string pre=words[i].substr(0,k);
+                mp[pre]++;
+            }
+        }
+        int ans=0;
+        for(auto &it:mp){
+            if(it.second>=2)ans++;
+        }
+        return ans;
+    }
+};

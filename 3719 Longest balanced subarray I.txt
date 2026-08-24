@@ -1,0 +1,108 @@
+leetcode 3719. Longest Balances subarray I
+------------------------------------------
+
+my solution -- runtime:513ms
+class Solution {
+    public int longestBalanced(int[] nums) {
+        int n=nums.length;
+        int len=0;
+
+        for(int i=0; i<n; i++) {
+            HashMap<Integer, Integer> odd = new HashMap<>();
+            HashMap<Integer, Integer> even = new HashMap<>();
+
+            for(int j=i; j<n; j++) {
+                HashMap<Integer, Integer> map = (nums[j] & 1) == 1? odd:even;
+                map.put(nums[j], map.getOrDefault(nums[j], 0)+1);
+                if(odd.size() == even.size()) {
+                    len = Math.max(len, j-i+1);
+                }
+            }
+        }
+        return len;
+    }
+}
+
+solution without using any hashsets 
+runtime:28ms
+class Solution {
+    private static int[] seen = new int[100001];
+    private static int leet = 0;
+    public int longestBalanced(int[] nums) {
+        leet++; 
+        int n = nums.length;
+        int res = 0;
+
+        for (int i = 0; i < n; i++) {
+            int[] A = new int[2];
+            int marker = (leet << 16) | (i + 1);
+            for (int j = i; j < n; j++) {
+                int val = nums[j];
+                if (seen[val] != marker) {
+                    seen[val] = marker;
+                    A[val & 1]++;
+                }
+
+                if (A[0] == A[1])
+                    res = Math.max(res, j - i + 1);
+            }
+        }
+
+        return res;
+    }
+}
+
+runtime:15ms
+class Solution {
+public:
+    inline static uint32_t seen[100001] = {};
+    inline static uint32_t leet = 0;
+    int longestBalanced(vector<int>& nums) {
+        leet++;
+        int n = nums.size();
+        int res = 0;
+
+        for (int i = 0; i < n; i++) {
+            int A[2] = {0, 0};
+            uint32_t marker = (leet << 16) | (uint32_t)(i + 1);
+            for (int j = i; j < n; j++) {
+                int val = nums[j];
+                if (seen[val] != marker) {
+                    seen[val] = marker;
+                    A[val & 1]++;
+                }
+
+                if (A[0] == A[1])
+                    res = max(res, j - i + 1);
+            }
+        }
+
+        return res;
+    }
+};
+
+runtime:1188ms
+class Solution:
+    def longestBalanced(self, nums: List[int]) -> int:
+        n = len(nums)
+        res = 0
+
+        seen = [0] * (max(nums) + 1)
+
+        for i in range(n):
+            A = [0, 0]
+
+            for j in range(i, n):
+                val = nums[j]
+                if seen[val] != i + 1:
+                    seen[val] = i + 1
+                    A[val & 1] += 1
+
+                if A[0] == A[1]:
+                    res = max(res, j - i + 1)
+
+        return res
+
+
+
+
