@@ -14,6 +14,7 @@ class Solution:
         return ans
     '''
 
+     # sliding window solution
     def shortestBeautifulSubstring(self, s: str, k: int) -> str:
         if s.count("1") < k:
             return ""
