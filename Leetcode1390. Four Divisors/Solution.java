@@ -1,18 +1,46 @@
-both solutions work
+// both solutions work
 
-class Solution {
-    /*
-    public int sumFourDivisors(int[] nums) {
-        int res = 0;
-        for(int n:nums) {
-            int val = sumOne(n);
-            if(val != -1) 
-                res += val;
-        }
-        return res;
-    }
-
-    public int sumOne(int n) {
+class Solution 
+{
+	private int sumofdivisor(int n){
+		int sum=0;
+		int count=0;
+		for(int i=1;i*i<=n;i++){
+			if(n%i==0){
+				int d1=i;
+				int d2=n/i;
+				count++;
+				sum+=d1;
+				if(d1!=d2){
+					count++;
+					sum+=d2;
+				}
+			}
+			if(count>4) return 0;
+		}
+		return count==4?sum:0;
+	}
+	
+	public int sumFourDivisors(int[] nums) {
+		int ans=0;
+		for(int num : nums){
+			ans+=sumofdivisor(num);
+		}
+		return ans;
+	}
+    
+    /**
+     * public int sumFourDivisors(int[] nums) {
+     * 		int res = 0;
+     * 		for(int n:nums) {
+     * 			int val = sumOne(n);
+     * 			if(val != -1) 
+     * 				res += val;
+     * 		}
+     * 		return res;
+     * 	}
+     * 
+     * public int sumOne(int n) {
         int p = (int) Math.round(Math.cbrt(n));
         if ((long) p * p * p == n && isPrime(p)) {
             return 1 + p + p * p + p * p * p;
@@ -38,30 +66,5 @@ class Solution {
         }
         return true;
     }
-    */
-    private int sumofdivisor(int n){
-        int sum=0;
-        int count=0;
-        for(int i=1;i*i<=n;i++){
-            if(n%i==0){
-                int d1=i;
-                int d2=n/i;
-                count++;
-                sum+=d1;
-                if(d1!=d2){
-                    count++;
-                    sum+=d2;
-                }
-            }
-            if(count>4) return 0;
-        }
-        return count==4?sum:0;
-    }
-    public int sumFourDivisors(int[] nums) {
-        int ans=0;
-        for(int num : nums){
-            ans+=sumofdivisor(num);
-        }
-        return ans;
-    }
+     */
 }

@@ -1,4 +1,10 @@
 class Solution {
+     /**
+      * Solution using sliding window
+      * @param s
+      * @param k
+      * @return
+      */
      public String shortestBeautifulSubstring(String s, int k) {
           int total = 0;
           for (int i = 0; i < s.length(); i++) 
@@ -71,7 +77,7 @@ class Solution {
         */
 
     /**
-     * Solution using enumeration
+     * ### SOLUTION USING ENUMERATION ###
      * class Solution {
      *    public String shortestBeautifulSubstring(String s, int k) {
      *         int n = s.length();
