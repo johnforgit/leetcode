@@ -1,0 +1,354 @@
+-------------
+Solution.java
+-------------
+
+class Solution {
+
+    public String reverseParentheses(String s) {
+        Stack<Integer> openParenthesesIndices = new Stack<>();
+        StringBuilder result = new StringBuilder();
+
+        for (char currentChar : s.toCharArray()) {
+            if (currentChar == '(') {
+                // Store the current length as the start index for future reversal
+                openParenthesesIndices.push(result.length());
+            } else if (currentChar == ')') {
+                int start = openParenthesesIndices.pop();
+                // Reverse the substring between the matching parentheses
+                reverse(result, start, result.length() - 1);
+            } else {
+                // Append non-parenthesis characters to the processed string
+                result.append(currentChar);
+            }
+        }
+
+        return result.toString();
+    }
+
+    private void reverse(StringBuilder sb, int start, int end) {
+        while (start < end) {
+            char temp = sb.charAt(start);
+            sb.setCharAt(start++, sb.charAt(end));
+            sb.setCharAt(end--, temp);
+        }
+    }
+}
+
+runtime - 0ms
+class Solution {
+
+    private static final int NONE = -1,
+                             ZERO = 0,
+                             ONE  = 1;  
+
+    private static final char OPEN  = '(',
+                              CLOSE = ')';
+
+    private void reverse(char[] text, int left, int right) {
+
+        while (left < right) {
+
+            char t = text[left];
+
+            text[left++] = text[right];
+
+            text[right--] = t;
+
+        }
+
+    }
+
+    public String reverseParentheses(String s) {
+
+        int length = s.length();
+
+        if (length == ONE)
+            return s;
+
+        char[] text     = s.toCharArray(),
+               reversed = new char[length];
+
+        int[] stack = new int[length];
+
+        int write   = ZERO,
+            pointer = NONE;
+
+        for (int index = ZERO; index < length; ++index)
+            switch(text[index]) {
+                case OPEN:
+                    stack[++pointer] = write;
+                    break;
+                case CLOSE:
+                    reverse(reversed, stack[pointer--], write - ONE);
+                    break;
+                default:
+                    reversed[write++] = text[index];
+                    break;
+            }
+                
+        return new String(reversed, ZERO, write);
+        
+    }
+}
+
+runtime - 1ms
+class Solution { 
+    public String reverseParentheses(String s) { 
+        int n = s.length();
+        int[] pair = new int[n];
+        Deque<Integer> st = new ArrayDeque<>();
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) == '(') st.push(i);
+            else if (s.charAt(i) == ')') {
+                int j = st.pop();
+                pair[i] = j;
+                pair[j] = i;
+            }
+        }
+        StringBuilder res = new StringBuilder();
+        int i = 0, dir = 1;
+        while (i >= 0 && i < n) {
+            if (s.charAt(i) == '(' || s.charAt(i) == ')') {
+                i = pair[i];
+                dir = -dir;
+            } else {
+                res.append(s.charAt(i));
+            }
+            i += dir;
+        }
+        return res.toString();
+    } 
+}
+
+********************************
+WORMHOLE TELEPORTATION TECHNIQUE
+********************************
+
+public class Solution {
+
+    public String reverseParentheses(String s) {
+        int n = s.length();
+        Stack<Integer> openParenthesesIndices = new Stack<>();
+        int[] pair = new int[n];
+
+        // First pass: Pair up parentheses
+        for (int i = 0; i < n; ++i) {
+            if (s.charAt(i) == '(') {
+                openParenthesesIndices.push(i);
+            }
+            if (s.charAt(i) == ')') {
+                int j = openParenthesesIndices.pop();
+                pair[i] = j;
+                pair[j] = i;
+            }
+        }
+
+        // Second pass: Build the result string
+        StringBuilder result = new StringBuilder();
+        for (
+            int currIndex = 0, direction = 1;
+            currIndex < n;
+            currIndex += direction
+        ) {
+            if (s.charAt(currIndex) == '(' || s.charAt(currIndex) == ')') {
+                currIndex = pair[currIndex];
+                direction = -direction;
+            } else {
+                result.append(s.charAt(currIndex));
+            }
+        }
+
+        return result.toString();
+    }
+}
+
+-----------
+Solution.py
+-----------
+
+class Solution:
+    def reverseParentheses(self, s: str) -> str:
+        open_parentheses_indices = deque()
+        result = []
+
+        for current_char in s:
+            if current_char == "(":
+                # Store the current length as the start index
+                # for future reversal
+                open_parentheses_indices.append(len(result))
+            elif current_char == ")":
+                start = open_parentheses_indices.pop()
+                # Reverse the substring between the matching parentheses
+                result[start:] = result[start:][::-1]
+            else:
+                # Append non-parenthesis characters to the processed list
+                result.append(current_char)
+        return "".join(result)
+		
+		
+********************************
+WORMHOLE TELEPORTATION TECHNIQUE
+********************************
+
+class Solution:
+    def reverseParentheses(self, s: str) -> str:
+        n = len(s)
+        open_parentheses_indices = []
+        pair = [0] * n
+
+        # First pass: Pair up parentheses
+        for i in range(n):
+            if s[i] == "(":
+                open_parentheses_indices.append(i)
+            if s[i] == ")":
+                j = open_parentheses_indices.pop()
+                pair[i] = j
+                pair[j] = i
+
+        # Second pass: Build the result string
+        result = []
+        curr_index = 0
+        direction = 1
+
+        while curr_index < n:
+            if s[curr_index] == "(" or s[curr_index] == ")":
+                curr_index = pair[curr_index]
+                direction = -direction
+            else:
+                result.append(s[curr_index])
+            curr_index += direction
+
+        return "".join(result)
+
+------------
+Solution.cpp
+------------
+
+class Solution {
+public:
+    string reverseParentheses(string s) {
+        stack<int> openParenthesesIndices;
+        string result;
+
+        for(char currentChar:s) {
+            if(currentChar == '(') {
+                // Store the current length as the start index for future
+
+                // reversal
+                openParenthesesIndices.push(result.length());
+            } else if (currentChar == ')') {
+                int start = openParenthesesIndices.top();
+                openParenthesesIndices.pop();
+
+                // reverse the subtring between the matching parantheses
+                reverse(result.begin()+start, result.end());
+            } else {
+                // append the non-parantheses characters to the processed string
+                result += currentChar;
+            }
+        }
+        return result;
+    }
+};
+
+
+********************************
+WORMHOLE TELEPORTATION TECHNIQUE
+********************************
+
+class Solution {
+public:
+    string reverseParentheses(string s) {
+        int n = s.length();
+        stack<int> openParenthesesIndices;
+        vector<int> pair(n);
+
+        // First pass: Pair up parentheses
+        for (int i = 0; i < n; ++i) {
+            if (s[i] == '(') {
+                openParenthesesIndices.push(i);
+            }
+            if (s[i] == ')') {
+                int j = openParenthesesIndices.top();
+                openParenthesesIndices.pop();
+                pair[i] = j;
+                pair[j] = i;
+            }
+        }
+
+        // Second pass: Build the result string
+        string result;
+        for (int currIndex = 0, direction = 1; currIndex < n;
+             currIndex += direction) {
+            if (s[currIndex] == '(' || s[currIndex] == ')') {
+                currIndex = pair[currIndex];
+                direction = -direction;
+            } else {
+                result += s[currIndex];
+            }
+        }
+        return result;
+    }
+};
+
+
+Approach 2: Wormhole Teleportation technique
+Intuition
+The previous approach used the reverse function, causing multiple reversals on the same string and resulting in O(n 
+2
+ ) time complexity. To optimize this, we can rethink the problem using the concept of 'wormholes/jumping' for paired parentheses.
+
+According to Wikipedia, a wormhole can be visualized as a tunnel with two ends at separate points in spacetime (i.e., different locations, different points in time, or both).
+
+To achieve this, we use two passes through the input string:
+
+Pairing Parentheses (First Pass):
+In the first pass, we use a stack (opened) to keep track of the indices of opening parentheses and a pair list to store the indices of matching parentheses.
+As we iterate through the string, we can come across two scenarios:
+
+When we encounter an opening parenthesis '(', we push its index onto the opened stack.
+When we encounter a closing parenthesis ')', we:
+Pop the top index from the opened stack (this is the index of the matching opening parenthesis).
+Create bidirectional links in the pair list between the current closing parenthesis and its matching opening parenthesis.
+Traversing and Building Result (Second Pass):
+Now, we can traverse the string as we know all the entry and exit points of parenthesis. So, we traverse using two variables:
+currIndex: the current position in the string
+direction: the direction of traversal (1 for forward, -1 for backward)
+
+As we iterate through the string:
+
+If the current character is a parenthesis (either '(' or ')'):
+We "teleport/jump" to its matching parenthesis using the pair list.
+We reverse the direction of traversal.
+If the current character is not a parenthesis:
+We add it to our result string.
+We move to the next position by adding the current direction (direction) to our position (currIndex).
+The key concept in this approach is treating paired parentheses as 'wormholes'. When encountering a parenthesis, 
+we imagine jumping through a wormhole to its match and reversing our direction. 
+This effectively reverses the order of characters within each pair of parentheses without actually reversing the string.
+
+forward ->  ( ... ( ... ) ... )  <- backward
+             ^     ^    ^     ^
+             |     |    |     |
+             A-----B----b-----a
+                  wormholes
+See the above art and observe: When we hit the opening parenthesis(A), we jump to its closing pair(a) and start moving backward. 
+When we hit the closing parenthesis(b) while moving backward, we jump to its opening pair and start moving forward again(B). 
+This motion will ultimately lead to our result string without using the reverse function. Reducing the time complexity to O(n).
+
+Algorithm
+First Pass: Pair up parentheses
+
+Initialize openParenthesesIndices stack and pair vector to establish "wormhole" connections.
+For each character:
+If '(', push its index to openParenthesesIndices to remember its position.
+If ')', pop from openParenthesesIndices and link both indices in pair to create the "wormhole".
+Second Pass: Build the result string
+
+Initialize result string, currIndex, and direction to traverse and build the result.
+While currIndex < input length:
+If '(' or ')', jump through the "wormhole" using pair and reverse direction to simulate reversal.
+Otherwise, append the character to result to build the result.
+Move currIndex by direction to continue traversal.
+Return result as the final string with all reversals simulated.
+
