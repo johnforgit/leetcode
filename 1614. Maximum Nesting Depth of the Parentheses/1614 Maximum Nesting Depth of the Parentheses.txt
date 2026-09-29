@@ -64,3 +64,74 @@ class Solution {
 -----------
 Solution.py
 -----------
+
+class Solution:
+    def maxDepth(self, s: str) -> int:
+        ans, openBrackets = 0, 0
+        for c in s:
+            if c == '(':
+                openBrackets += 1
+            elif c == ')':
+                openBrackets -= 1
+            ans = max(ans, openBrackets)
+        return ans
+
+
+class Solution:
+    def maxDepth(self, s: str) -> int:
+        ans, st = 0, []
+        for c in s:
+            if c == '(':
+                st.append(c)
+            elif c == ')':
+                st.pop()
+            ans = max(ans, len(st))
+        return ans
+
+
+------------
+Solution.cpp
+------------
+
+Both solutions have a runtime of 0ms
+
+class Solution {
+public:
+    int maxDepth(string s) {
+        int ans = 0;
+
+        stack<char> st;
+        for (char c : s) {
+            if (c == '(') {
+                st.push(c);
+            } else if (c == ')') {
+                st.pop();
+            }
+            
+            ans = max(ans, (int)st.size());
+        }
+        
+        return ans;
+    }
+};
+
+class Solution {
+public:
+    int maxDepth(string s) {
+        int ans = 0;
+        int openBrackets = 0;
+
+        for (char c : s) {
+            if (c == '(') {
+                openBrackets++;
+            } else if (c == ')') {
+                openBrackets--;
+            }
+            
+            ans = max(ans, openBrackets);
+        }
+        
+        return ans;
+    }
+};
+
