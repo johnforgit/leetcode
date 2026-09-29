@@ -1,0 +1,61 @@
+class Solution {
+    /**
+    =============
+    USING A STACK 
+    =============
+    public int maxDepth(String s) {
+        Stack<Character> stack = new Stack();
+        int ans = 0;
+
+        for(Character c : s.toCharArray()) {
+            if(c == '(') {
+                stack.push(c);
+            } else if (c == ')') {
+                stack.pop();
+            }
+
+            ans = Math.max(ans, stack.size());
+        }
+        return ans;
+    }
+     */
+
+    // USING A COUNTER VARIABLE
+    public int maxDepth(String s) {
+        int ans = 0;
+        int openBrackets = 0;
+
+        for(Character c : s.toCharArray()) {
+            if(c == '(') {
+                openBrackets++;
+            } else if(c == ')') {
+                openBrackets--;
+            }
+
+            ans = Math.max(ans, openBrackets);
+        }
+
+        return ans;
+    }
+
+    /**
+     * RUNTIME - 0ms
+     *     public int maxDepth(String s) {
+     *          int cnt = 0;
+     *          int max = 0;
+        for(int i=0;i<s.length();i++){
+            char ch = s.charAt(i);
+            if(ch=='('){
+                cnt++;
+                max = Math.max(max,cnt);
+            }
+            if(ch == ')'){
+                cnt--;
+            }
+        }
+        return max;
+    }
+}
+     */
+    
+}
