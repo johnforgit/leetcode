@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/1190. Reverse Substrings Between Each Pair of Parentheses" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/1614. Maximum Nesting Depth of the Parentheses" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode 1239" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode 3074. Apple redistribution in boxes" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode 3774. Absolute difference between max and min k elements" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1009. Complement of Base 10 Integer" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1022. Sum of root to leaf binary numbers" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode11. Container with most water" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode110. Balanced binary tree" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1161. Max level sum of binary tree" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1200. Min Absolute difference" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode124. Binary Tree Maximum Path Sum" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1261. Find elements in a contaminated binary tree" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1266. Min time visiting all poitns" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1292" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1302. Deepest leaves sum" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1304. Find N unique integers sum upto zero" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1339. Max product of splitted binary tree" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1351. Count Negative nos in a sorted matrix" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1390. Four Divisors" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1411. no of ways to paint Nx3 grid" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1458. Max Product of two subsequences" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1461. Check if a string contains all binary codes of size k" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1523. Count odd numbers in interval range" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode153. Find Minimum in rotated sorted array" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1536. Min swaps to arrange a binary grid" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1545. find kth bit in nth binary string" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1582. Special positions in a binary matrix" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1594. Maximum non negative product in matrix" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1680. Concatenation of consecutive numbers" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1727. Largest submatrix with rearrangements" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1877. Minimize max pair sum in Array" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1886. Determine whether matrix can be obtained through rotation" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1888. Min no of bit flips to make binary string alternating" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1895. Largest Magic Square" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode190. Reverse Bits" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1975. Maximum matrix sum" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode1984. Min difference between highest and lowest of k scores" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode200. Number of islands" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode2009. Min no of operations to make array continuous" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode206. Reverse Linked List" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode2069. Walking robot simulation II" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode2075. Decode the slanted ciphertext" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode2523" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode2573. Find the string with lcp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode2606. Find substring with max cost" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode2751. Robot Collisions" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode2839. Check if strings can be made equal with operations I" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode2840. Check if strings can be made equal with operations II" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode2906. Construct Product matrix" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode2943. Maximize area of square hole in grid" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode2946. Matrix similarity after cyclic shifts" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode2976. Min cost to convert string I" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3010. Divide an array into subarrays with min cost I" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3047. Find the largest area of square inside two rectangles" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3070. Count submatrices with top-left element and sum less than k" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3212. Count submatrices with equal frequency of x and y" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3314. Construct the min bitwise array I" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3315. Construct min bitwise array II" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3379. Transformed array" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3418. Max money robot can earn" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3453. Seperate Squares I" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3507. Min pair removal to sort array I" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3546. Equal Sums grid Partition I" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3567. min absolute diff in sliding submatrix" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3634. Min removals to balance array" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3637. Trionic array I" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3643. Flip square submatrixes vertically" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3650. Min cost path with edge reversals" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3658. GCD of odd and even sum" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3721. Longest Balanced subarray II" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3732" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3775. Reverse words with same vowel count" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3795. Min subarray length with distinct sum at least k" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3809. Max reachable tower" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode3839. Number of prefix connected groups" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode417. Pacific Atlantic water flow" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode451. Sort characters by frequency" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode463. Island Perimeter" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode474. Ones and Zeroes" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode498. Diagonal Traverse" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode540. Single element in sorted array" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode543. Diameter of binary tree" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode58. Length of last word" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode643. Max avg subarray I" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode657. Robot return to origin" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode66. Plus one" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode67. Add Binary" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode686. Repeated String match" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode693. Binary no with alternation bits" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode695. Max Area of Island" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode70. Climbing stairs" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode712. Min ASCII delete sum for two strings" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode740. Delete and Earn" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode744. Find smallest letter greater than target" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode756. Pyramid Transition Matrix" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode762. Prime numbers of set bits in binary Representation" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode799. Champagne tower" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode80. Remove duplicates from sorted array II" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode840. Magic squares in grid" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode85. Maximal Rectangle" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode865. Smallest subtree with all the deepest nodes" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode868. Binary Gap" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode874. Walking robot simulation" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Leetcode961. N-repeated element in size 2N array" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode1768. Merge strings alternatively" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode1925" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode2054" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode2110" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode2210" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode2904" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode3136" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode3461" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode3718" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode378" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode48" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode78" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

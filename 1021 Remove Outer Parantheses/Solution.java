@@ -1,0 +1,123 @@
+class Solution {
+    /*
+    public String removeOuterParentheses(String s) {
+        StringBuilder res = new StringBuilder();
+        Deque<Character> stack = new ArrayDeque<>();
+        for(int i=0; i<s.length(); i++) {
+            char c = s.charAt(i);
+            if(c == ')')
+                stack.pop();
+            if(!stack.isEmpty()) {
+                res.append(c);
+            }
+            if(c == '(') {
+                stack.push(c);
+            }
+        }
+        return res.toString();
+    }
+    */
+
+    public String removeOuterParentheses(String s) 
+    {
+        int level = 0;
+        StringBuilder res = new StringBuilder();
+        for(int i=0; i<s.length(); i++) {
+            char c = s.charAt(i);
+            if(c == ')') {
+                level--;
+            }
+            if(level > 0) {
+                res.append(c);
+            }
+            if(c == '(') {
+                level++;
+            }
+        }
+        return res.toString();
+    }
+}
+
+// runtime - 0ms
+class Solution {
+    static {
+        for (int i = 0; i<300; i++) {
+            removeOuterParentheses("()");
+        }
+    }
+    public static String removeOuterParentheses(String s) {
+        StringBuilder ans=new StringBuilder();
+        int count=0;
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            if(ch=='('){
+                if(count>0){
+                    ans.append(ch);
+                }
+                count++;
+            }
+            else{
+                count--;
+                if(count>0){
+                    ans.append(ch);
+                }
+            }
+        }
+        return ans.toString();
+    }
+}
+
+// runtime - 2ms
+class Solution {
+    public String removeOuterParentheses(String s) {
+
+        StringBuilder ans = new StringBuilder();
+        int count = 0;
+
+        for(char ch : s.toCharArray()){
+            if(ch =='('){
+                if(count > 0){
+                    ans.append(ch);
+                }
+                count++;
+            }
+            else{
+                count--;
+                if(count > 0){
+                    ans.append(ch);
+                }
+            }
+        }
+
+        return ans.toString();      
+        
+    }
+}
+
+// runtime - 3ms
+class Solution {
+    public String removeOuterParentheses(String s) {
+        int count=0;
+        StringBuilder sb=new StringBuilder();
+        for(char ch:s.toCharArray()){
+            if(count==0&&ch=='('){
+                count++;
+                continue;
+
+            }
+          else if(count==1&&ch==')'){
+                count--;
+                continue;
+            }
+          else  if(ch=='('){
+                sb.append(ch);
+                count++;
+            }
+            else if(ch==')'){
+                sb.append(ch);
+                count--;
+            }
+        }
+        return  sb.toString();
+    }
+}
