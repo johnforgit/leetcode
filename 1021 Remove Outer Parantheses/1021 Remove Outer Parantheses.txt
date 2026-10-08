@@ -1,3 +1,26 @@
+Approach 1: Stack
+Intuition
+We traverse s and use a stack to track the nesting depth of the parentheses. When we encounter (, 
+we push it onto the stack; when we encounter ), we pop the top element from the stack. 
+The interval from when the stack first becomes non-empty until it becomes empty again corresponds to scanning a single primitive string. 
+Within each primitive string, the outermost opening and closing parentheses must be discarded, while all inner characters are added to the result.
+
+In the implementation, we can streamline the conditions by ordering the operations carefully:
+
+For ), we pop from the stack before checking whether the stack is empty (so the outermost ) leaves the stack empty and is excluded).
+For (, we check whether the stack is non-empty before pushing (so the outermost ( sees an empty stack and is excluded).
+This allows a single check on whether the stack is non-empty to handle both cases.
+
+Approach 2: Counting
+Intuition
+We can maintain an integer variable level representing the current nesting depth, adding 1 for ( and subtracting 1 for ). Starting with level=0, 
+each time level drops back to 0, we have reached the end of a primitive valid parentheses string.
+
+To omit the outermost parentheses of each primitive string without extra conditional checks:
+
+When encountering (, we only append it to the result if level>0 (meaning it is not the opening parenthesis of a primitive string), and then increment level.
+When encountering ), we first decrement level, and only append it to the result if level>0 (meaning it is not the closing parenthesis of a primitive string).
+
 *************
 Solution.java
 *************
@@ -130,9 +153,73 @@ class Solution {
 Solution.py
 ***********
 
+# runtime - 0ms
+class Solution:
+    def removeOuterParentheses(self, s: str) -> str:
+        res, stack = [], []
+        for c in s:
+            if c == ")":
+                stack.pop()
+            if stack:
+                res.append(c)
+            if c == "(":
+                stack.append(c)
+        return "".join(res)
+
+# runtime - 1ms
+class Solution:
+    def removeOuterParentheses(self, s: str) -> str:
+        res, level = [], 0
+        for c in s:
+            if c == ")":
+                level -= 1
+            if level > 0:
+                res.append(c)
+            if c == "(":
+                level += 1
+        return "".join(res)
+
 
 ************
 Solution.cpp
 ************
 
+// runtime - 0ms
 
+class Solution {
+public:
+    string removeOuterParentheses(string s) {
+        int level = 0;
+        string res;
+        for(auto c:s) {
+            if(c == ')')
+                level--;
+            if(level > 0)
+                res.push_back(c);
+            if(c == '(')
+                level++;
+        }
+        return res;
+    }
+};
+
+// runtime - 1ms
+class Solution {
+public:
+    string removeOuterParentheses(string s) {
+        string res;
+        stack<char> st;
+        for (auto c : s) {
+            if (c == ')') {
+                st.pop();
+            }
+            if (!st.empty()) {
+                res.push_back(c);
+            }
+            if (c == '(') {
+                st.emplace(c);
+            }
+        }
+        return res;
+    }
+};
